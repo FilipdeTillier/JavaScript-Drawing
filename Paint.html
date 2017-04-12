@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Paint</title>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-1 col-xs-1" style="height: 1000px">
+                <div class="row">
+                    <div class="col-lg-4 col-xs-4">
+
+                    </div>
+                    <div class="col-lg-4 col-xs-4">
+
+                    </div>
+                    <div class="col-lg-4 col-xs-4">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-10 col-xs-10" style="height: 1000px">
+                <button name="button" id="red" style="background-color: red; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="yellow" style="background-color: yellow; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="green" style="background-color: green; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="purple" style="background-color: purple; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="dark" style="background-color: #000000; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="blue" style="background-color: blue; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="pink" style="background-color: pink; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="gold" style="background-color: gold; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="orangered" style="background-color: orangered; border: none; width: 50px; height: 50px;"><p></p></button>
+                <button name="button" id="white" style=" border: none; width: 50px; height: 50px; margin-top: 0px;"><p>Eraser</p></button>
+                <button name="button" id="clear" style=" border: none; width: 50px; height: 50px; margin-top: 0px; "><p>Clear</p></button>
+                <input id="lineWidth" type="range" name="lineWidth" min="1" max="100" value="20" data-sizing="" style="width: 100px; display: inline;">
+
+                <div style="clear:both" class="hey"></div>
+                <canvas id="draw" width="800" height="600">
+                    </canvas>
+            </div>
+            <div class="col-lg-10 col-xs-10" style="height: 1000px"></div>
+        </div>
+    </div>
+    <script src="js.js"></script>
+</body>
+
+</html>
