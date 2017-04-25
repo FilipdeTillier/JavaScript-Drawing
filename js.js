@@ -7,43 +7,37 @@ const yellow = document.getElementById('yellow');
 const green = document.getElementById('green');
 const clear = document.getElementById('clear');
 const reg = document.getElementById('lineWidth');
+const rgb = document.getElementById('base');
+const download = document.getElementById('download');
+const container = document.getElementsByClassName('container');
+
 
 ctx.width = window.innerWidth;
 ctx.height = window.innerHeight;
 ctx.strokeStyle = "#BADA55";
 ctx.lineJoin = "round";
 ctx.lineCap = "round";
-ctx.lineWidth = 100;
+ctx.lineWidth = reg.value;
+
 
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0;
 
 function change() {
-    reg.addEventListener('mousemove', function() {
-        console.log('hehe')
-
-    });
-
+    var lw = reg.value;
+    ctx.lineWidth = lw;
 };
-reg.addEventListener('mousedown', change);
+reg.addEventListener('change', change);
+reg.addEventListener('mousemove', change);
+canvas.style.cursor = 'crosshair';
 
-
-document.addEventListener('DOMContentLoaded', function() {
-    for (var i = 0; i < ln; i++) {
-        const color = select[i].id;
-        select[i].addEventListener('mousedown', function() {
-            ctx.strokeStyle = color;
-        });
-    };
-});
 clear.addEventListener('click', function() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 }, false);
 
 function draw(e) {
     if (!isDrawing) return;
-    console.log(e);
     ctx.beginPath();
     ctx.moveTo(lastX, lastY);
     ctx.lineTo(e.offsetX, e.offsetY);
@@ -51,6 +45,7 @@ function draw(e) {
     [lastX, lastY] = [e.offsetX, e.offsetY];
 
 }
+
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
@@ -59,3 +54,22 @@ canvas.addEventListener('mousedown', (e) => {
 });
 canvas.addEventListener('mouseup', () => isDrawing = false);
 canvas.addEventListener('mouseout', () => isDrawing = false);
+
+document.addEventListener('DOMContentLoaded', function() {
+    for (var i = 0; i < ln; i++) {
+        const color = select[i].id;
+        select[i].addEventListener('mousedown', function() {
+            ctx.strokeStyle = color;
+        });
+    };
+}, false);
+
+function downloadCanvas(link, canvasId, filename) {
+    link.href = document.getElementById(canvasId).toDataURL();
+    console.log('he');
+    link.download = filename;
+};
+
+download.addEventListener('mousedown', function() {
+    downloadCanvas(this, 'draw', 'Drawing.jpeg');
+}, false);

@@ -5,3 +5,12 @@ body {
 #draw {
     background-color: white;
 }
+
+#download {
+    color: black
+}
+
+#download:hover {
+    text-decoration: none;
+    color: black;
+}
